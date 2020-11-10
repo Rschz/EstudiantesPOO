@@ -1,7 +1,7 @@
 <?php
 require_once('EstudianteService.php');
 
-class Estudiante extends EstudianteService
+class Estudiante
 {
     public $Id;
     public $Nombre;
@@ -11,9 +11,15 @@ class Estudiante extends EstudianteService
     public $MateriasFav;
     public $FotoPerfil;
 
-    public function __construct($id, $nombre, $apellido, $status, $carrera, $materiasFav, $fotoPerfil)
+    public function __construct($id = null, $nombre, $apellido, $status, $carrera, $materiasFav, $fotoPerfil)
     {
-        $this->Id = $id;
+        
+        if ($id == null) {
+            $this->Id = 1;
+        } else {
+            $this->Id = $id;
+        }
+        
         $this->Nombre = $nombre;
         $this->Apellido = $apellido;
         $this->Status = $status;
