@@ -21,7 +21,7 @@ class EstudianteService implements IService
             ? json_decode($_COOKIE[$this->CookieName])
             : header('Location:index.php');
 
-        $flt = array_filter($cookieArrayObj, function ($e) {
+        $flt = array_filter((array)$cookieArrayObj, function ($e) {
             return $e->Carrera == $this->ValorBusqueda;
         });
 
